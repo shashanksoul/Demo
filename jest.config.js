@@ -1,11 +1,12 @@
 module.exports = {
   preset: 'react-native',
-  collectCoverageFrom: ['**/*.{js,jsx,ts,tsx}', '!**/node_modules/**'],
-  testPathIgnorePatterns: [
-    '/node_modules/',
-    '/src/navigation/',
-    'src/index.tsx',
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx,ts,tsx}',
+    '!**/node_modules/**',
+    '!src/navigation/**', // Exclude navigation directory
+    '!src/index.tsx',
   ],
+  testPathIgnorePatterns: ['/node_modules/'],
   coverageThreshold: {
     global: {
       branches: 80,
