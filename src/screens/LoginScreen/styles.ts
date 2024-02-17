@@ -32,13 +32,13 @@ export const style = StyleSheet.create({
     marginTop: 30,
   },
   buttonDisabled: {
-    backgroundColor: '#A020F050',
+    backgroundColor: '#80808050',
   },
   buttonText: {
     color: 'white',
   },
   buttonDisabledText: {
-    color: 'grey',
+    color: 'black',
   },
   backgroundImage: {
     position: 'absolute',

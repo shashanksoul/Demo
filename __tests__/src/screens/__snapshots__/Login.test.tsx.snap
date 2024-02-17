@@ -38,6 +38,7 @@ exports[`Login Screen renders correctly 1`] = `
   </Text>
   <TextInput
     keyboardType="email-address"
+    onChangeText={[Function]}
     placeholder="User name"
     style={
       {
@@ -49,9 +50,12 @@ exports[`Login Screen renders correctly 1`] = `
         "width": "100%",
       }
     }
+    testID="email-input"
+    value=""
   />
   <TextInput
     keyboardType="visible-password"
+    onChangeText={[Function]}
     placeholder="Password"
     style={
       {
@@ -63,13 +67,15 @@ exports[`Login Screen renders correctly 1`] = `
         "width": "100%",
       }
     }
+    testID="password-input"
+    value=""
   />
   <View
     accessibilityState={
       {
         "busy": undefined,
         "checked": undefined,
-        "disabled": undefined,
+        "disabled": true,
         "expanded": undefined,
         "selected": undefined,
       }
@@ -95,7 +101,7 @@ exports[`Login Screen renders correctly 1`] = `
     style={
       {
         "alignItems": "center",
-        "backgroundColor": "#FF000098",
+        "backgroundColor": "#80808050",
         "borderRadius": 30,
         "justifyContent": "center",
         "marginTop": 30,
@@ -104,12 +110,18 @@ exports[`Login Screen renders correctly 1`] = `
         "width": "60%",
       }
     }
+    testID="login-button"
   >
     <Text
       style={
-        {
-          "color": "white",
-        }
+        [
+          {
+            "color": "white",
+          },
+          {
+            "color": "black",
+          },
+        ]
       }
     >
       Login
