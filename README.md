@@ -1,5 +1,5 @@
 # Getting Started
-Demo App showcasing redux, redux-thunk, react-navigation, localization, pagination.
+Demo App showcasing redux, redux-thunk, react-navigation, localization, pagination,unit testing using jest & react native testing library.
 To run this app create .key.js file at root of folder and paste **TheMovieDB** api auth token.
 
 ## Step 1: Start the Metro Server
