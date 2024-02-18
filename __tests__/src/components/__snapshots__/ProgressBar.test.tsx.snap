@@ -24,7 +24,7 @@ exports[`ProgressBar component render 1`] = `
       }
     }
   >
-    Loading More Movies...
+    home.progress-message
   </Text>
 </View>
 `;

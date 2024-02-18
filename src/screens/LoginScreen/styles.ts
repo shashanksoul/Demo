@@ -43,4 +43,9 @@ export const style = StyleSheet.create({
   backgroundImage: {
     position: 'absolute',
   },
+  dropDown: {
+    position: 'absolute',
+    right: 20,
+    top: 40,
+  },
 });

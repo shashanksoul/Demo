@@ -4,6 +4,7 @@ import {style} from './styles';
 import {isValidEmail, isValidPassword} from '../../utils/isValid';
 import {LoginScreenProps} from './types';
 import {useTranslation} from 'react-i18next';
+import LanguagePicker from '../../components/LanguagePicker';
 
 const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -51,6 +52,9 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
           {t('login.login')}
         </Text>
       </TouchableOpacity>
+      <View style={style.dropDown}>
+        <LanguagePicker />
+      </View>
     </View>
   );
 };
