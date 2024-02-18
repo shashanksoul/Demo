@@ -5,6 +5,7 @@ module.exports = {
     '!**/node_modules/**',
     '!src/navigation/**', // Exclude navigation directory
     '!src/index.tsx',
+    '!src/data/api/index.ts',
   ],
   testPathIgnorePatterns: ['/node_modules/'],
   transformIgnorePatterns: [

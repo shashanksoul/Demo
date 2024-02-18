@@ -8,7 +8,7 @@ type MovieItemProps = {
 const {width} = Dimensions.get('window');
 const MovieItem: React.FC<MovieItemProps> = ({movieDetail}) => {
   return (
-    <View style={style.container}>
+    <View testID="movie-item" style={style.container}>
       <Image
         testID="movie-image"
         source={{

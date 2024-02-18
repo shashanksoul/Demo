@@ -3,7 +3,7 @@ import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 
 const ProgressBar: React.FC = () => {
   return (
-    <View style={style.container}>
+    <View testID="progress-bar" style={style.container}>
       <ActivityIndicator color="white" animating={true} size="small" />
       <Text style={style.label}>Loading More Movies...</Text>
     </View>

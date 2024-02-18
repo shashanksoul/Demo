@@ -14,6 +14,6 @@ describe('MovieItem', () => {
     expect(movieImage.props.source.uri).toEqual(
       'https://image.tmdb.org/t/p/w500/moviePath',
     );
-    expect(titleText.children).toEqual('mockTitle');
+    expect(titleText.children).toEqual(['mockTitle']);
   });
 });

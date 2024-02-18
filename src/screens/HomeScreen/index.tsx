@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {FlatList, Text, View} from 'react-native';
 import MovieItem from '../../components/MovieItem';
 import style from './styles';
@@ -8,7 +8,7 @@ import {AppState} from '../../data/redux/types';
 import ProgressBar from '../../components/ProgressBar';
 
 const HomeScreen: React.FC = () => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = React.useState(1);
   const {isLoading, movies, error, currentPage, totalPages} = useSelector(
     (state: AppState) => ({
       isLoading: state.isLoading,
@@ -26,13 +26,13 @@ const HomeScreen: React.FC = () => {
 
   return (
     <View style={style.container}>
-      <Text>{error}</Text>
       <FlatList
+        testID="flat-list"
         numColumns={2}
         onEndReachedThreshold={0.3}
         onEndReached={() => {
           if (currentPage && totalPages && currentPage <= totalPages) {
-            setPage(prevPage => prevPage + 1);
+            setPage(page + 1);
           }
         }}
         data={movies}

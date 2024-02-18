@@ -9,6 +9,7 @@ exports[`ProgressBar component render 1`] = `
       "padding": 10,
     }
   }
+  testID="progress-bar"
 >
   <ActivityIndicator
     animating={true}
