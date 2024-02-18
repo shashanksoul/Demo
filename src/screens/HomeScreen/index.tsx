@@ -26,19 +26,25 @@ const HomeScreen: React.FC = () => {
 
   return (
     <View style={style.container}>
-      <FlatList
-        testID="flat-list"
-        numColumns={2}
-        onEndReachedThreshold={0.3}
-        onEndReached={() => {
-          if (currentPage && totalPages && currentPage <= totalPages) {
-            setPage(page + 1);
-          }
-        }}
-        data={movies}
-        keyExtractor={(item, index) => `${item.title},${index}`}
-        renderItem={({item}) => <MovieItem movieDetail={item} />}
-      />
+      {error ? (
+        <Text testID="error-text" style={style.errorText}>
+          {error}
+        </Text>
+      ) : (
+        <FlatList
+          testID="flat-list"
+          numColumns={2}
+          onEndReachedThreshold={0.3}
+          onEndReached={() => {
+            if (currentPage && totalPages && currentPage <= totalPages) {
+              setPage(page + 1);
+            }
+          }}
+          data={movies}
+          keyExtractor={(item, index) => `${item.title},${index}`}
+          renderItem={({item}) => <MovieItem movieDetail={item} />}
+        />
+      )}
       {isLoading && <ProgressBar />}
     </View>
   );

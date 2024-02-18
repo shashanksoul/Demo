@@ -21,6 +21,13 @@ jest.mock('react-redux', () => ({
       currentPage: 1,
       totalPages: 10,
     })
+    .mockReturnValueOnce({
+      isLoading: true,
+      movies: [],
+      error: 'service down',
+      currentPage: 1,
+      totalPages: 10,
+    })
     .mockReturnValue({
       isLoading: false,
       movies: [{poster_path: 'image', title: 'name'}],
@@ -40,6 +47,11 @@ describe('Home Screen', () => {
     const {getByTestId} = render(<HomeScreen />);
     const progressBar = getByTestId('progress-bar');
     expect(progressBar).toBeTruthy();
+  });
+  it('error from api', () => {
+    const {getByTestId} = render(<HomeScreen />);
+    const errorText = getByTestId('error-text');
+    expect(errorText.children).toEqual(['service down']);
   });
   it('renders all items in flat list', () => {
     const {getAllByTestId} = render(<HomeScreen />);

@@ -18,6 +18,7 @@ const movieReducer = (
         isLoading: false,
         movies: [...state.movies, ...action.payload.movies],
         totalPages: action.payload.totalPages,
+        error: undefined,
       };
     case MovieActionTypes.MOVIE_REQ_FAIL:
       return {
