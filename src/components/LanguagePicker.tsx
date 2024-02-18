@@ -1,8 +1,9 @@
-import React, {Dispatch, useState} from 'react';
+import React, {Dispatch, useEffect, useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import lnList from './../localization/translations/languageList.json';
 import i18next from './../localization';
+import {saveCurrentLng} from '../utils/language';
 
 const LanguagePicker = () => {
   const [open, setOpen] = useState(false);
@@ -14,8 +15,14 @@ const LanguagePicker = () => {
 
   const setValue = (val: any) => {
     setLng(val);
+    saveCurrentLng(val);
     i18next.changeLanguage(val);
   };
+
+  useEffect(() => {
+    i18next.on('languageChanged', ln => setLng(ln));
+    return () => i18next.off('languageChanged');
+  }, []);
   return (
     <>
       <DropDownPicker

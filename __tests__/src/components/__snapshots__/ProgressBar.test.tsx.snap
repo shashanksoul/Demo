@@ -23,8 +23,6 @@ exports[`ProgressBar component render 1`] = `
         "paddingLeft": 10,
       }
     }
-  >
-    home.progress-message
-  </Text>
+  />
 </View>
 `;

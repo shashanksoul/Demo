@@ -11,8 +11,8 @@ const languageResources = {
 };
 
 i18next.use(initReactI18next).init({
-  lng: 'en',
   compatibilityJSON: 'v3',
+  lng: 'en',
   fallbackLng: 'en',
   resources: languageResources,
 });
