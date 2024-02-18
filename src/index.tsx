@@ -4,6 +4,7 @@ import {applyMiddleware, createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {thunk} from 'redux-thunk';
 import {movieReducer} from './data/redux';
+import './localization';
 
 const middleWares = [thunk];
 

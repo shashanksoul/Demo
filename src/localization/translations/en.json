@@ -1,0 +1,10 @@
+{
+    "login":{
+        "user-name": "User name",
+        "password": "Password",
+        "login":"Login"
+    },
+    "home":{
+        "progress-message": "Loading more movies..."
+    }
+}

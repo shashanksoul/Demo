@@ -1,11 +1,13 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 
 const ProgressBar: React.FC = () => {
+  const {t} = useTranslation();
   return (
     <View testID="progress-bar" style={style.container}>
       <ActivityIndicator color="white" animating={true} size="small" />
-      <Text style={style.label}>Loading More Movies...</Text>
+      <Text style={style.label}>{t('home.progress-message')}</Text>
     </View>
   );
 };

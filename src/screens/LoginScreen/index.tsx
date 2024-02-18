@@ -3,10 +3,12 @@ import {Image, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {style} from './styles';
 import {isValidEmail, isValidPassword} from '../../utils/isValid';
 import {LoginScreenProps} from './types';
+import {useTranslation} from 'react-i18next';
 
 const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const {t} = useTranslation();
 
   const isLoginEnabled = () => isValidEmail(email) && isValidPassword(password);
   return (
@@ -22,7 +24,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
         onChangeText={setEmail}
         keyboardType="email-address"
         style={style.input}
-        placeholder="User name"
+        placeholder={t('login.user-name')}
       />
       <TextInput
         testID="password-input"
@@ -30,7 +32,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
         onChangeText={setPassword}
         keyboardType="visible-password"
         style={style.input}
-        placeholder="Password"
+        placeholder={t('login.password')}
       />
       <TouchableOpacity
         testID="login-button"
@@ -46,7 +48,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
               ? style.buttonText
               : [style.buttonText, style.buttonDisabledText]
           }>
-          Login
+          {t('login.login')}
         </Text>
       </TouchableOpacity>
     </View>
