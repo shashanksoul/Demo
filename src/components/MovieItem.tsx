@@ -17,7 +17,7 @@ const MovieItem: React.FC<MovieItemProps> = ({movieDetail}) => {
         style={style.image}
         resizeMode="stretch"
       />
-      <Text testID="movie-title" style={style.title}>
+      <Text testID="movie-title" numberOfLines={1} style={style.title}>
         {movieDetail.title}
       </Text>
     </View>
