@@ -10,13 +10,16 @@ const MovieItem: React.FC<MovieItemProps> = ({movieDetail}) => {
   return (
     <View style={style.container}>
       <Image
+        testID="movie-image"
         source={{
           uri: `https://image.tmdb.org/t/p/w500/${movieDetail.poster_path}`,
         }}
         style={style.image}
         resizeMode="stretch"
       />
-      <Text style={style.title}>{movieDetail.title}</Text>
+      <Text testID="movie-title" style={style.title}>
+        {movieDetail.title}
+      </Text>
     </View>
   );
 };

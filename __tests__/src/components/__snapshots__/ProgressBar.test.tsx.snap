@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressBar component render 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#FFFFFF80",
+      "flexDirection": "row",
+      "padding": 10,
+    }
+  }
+>
+  <ActivityIndicator
+    animating={true}
+    color="white"
+    size="small"
+  />
+  <Text
+    style={
+      {
+        "color": "white",
+        "paddingLeft": 10,
+      }
+    }
+  >
+    Loading More Movies...
+  </Text>
+</View>
+`;

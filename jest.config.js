@@ -7,6 +7,9 @@ module.exports = {
     '!src/index.tsx',
   ],
   testPathIgnorePatterns: ['/node_modules/'],
+  transformIgnorePatterns: [
+    'node_modules/(?!(@react-native|react-native|react-redux)/)',
+  ],
   coverageThreshold: {
     global: {
       branches: 80,
