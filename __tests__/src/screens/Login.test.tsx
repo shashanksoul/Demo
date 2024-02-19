@@ -6,6 +6,12 @@ const mockNavigation: any = {
   replace: jest.fn(),
 };
 const mockRoute: any = jest.fn();
+const mockDispatch = jest.fn();
+
+jest.mock('react-redux', () => ({
+  useSelector: jest.fn(),
+  useDispatch: () => mockDispatch,
+}));
 
 describe('Login Screen', () => {
   it('renders correctly', () => {
@@ -14,8 +20,8 @@ describe('Login Screen', () => {
     );
     const button = loginUI.getByTestId('login-button');
     fireEvent(button, 'press');
-    expect(mockNavigation.replace).not.toHaveBeenCalled();
-    expect(loginUI).toMatchSnapshot();
+    expect(mockDispatch).not.toHaveBeenCalled();
+    expect(loginUI.toJSON()).toMatchSnapshot();
   });
 
   it('when username not valid', () => {
@@ -30,7 +36,7 @@ describe('Login Screen', () => {
     fireEvent(button, 'press');
     expect(passwordInput.props.value).toBe('Kuy@1298h9');
     expect(emailInput.props.value).toBe('skumargmail.com');
-    expect(mockNavigation.replace).not.toHaveBeenCalled();
+    expect(mockDispatch).not.toHaveBeenCalled();
   });
 
   it('when password not valid', () => {
@@ -45,7 +51,7 @@ describe('Login Screen', () => {
     fireEvent(button, 'press');
     expect(passwordInput.props.value).toBe('asf345fa');
     expect(emailInput.props.value).toBe('skumar@gmail.com');
-    expect(mockNavigation.replace).not.toHaveBeenCalled();
+    expect(mockDispatch).not.toHaveBeenCalled();
   });
 
   it('when email & password valid', () => {
@@ -58,6 +64,6 @@ describe('Login Screen', () => {
     fireEvent.changeText(emailInput, 'skumar@gmail.com');
     const button = getByTestId('login-button');
     fireEvent(button, 'press');
-    expect(mockNavigation.replace).toHaveBeenCalledWith('Home');
+    expect(mockDispatch).toHaveBeenCalledWith({type: 'LOG_IN'});
   });
 });

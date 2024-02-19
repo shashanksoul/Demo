@@ -7,7 +7,7 @@ import {saveCurrentLng} from '../utils/language';
 
 const LanguagePicker = () => {
   const [open, setOpen] = useState(false);
-  const [lng, setLng] = useState('en');
+  const [lng, setLng] = useState(i18next.language);
   const lngList = Object.keys(lnList).map((key: string) => ({
     label: lnList[key].nativeName,
     value: key,

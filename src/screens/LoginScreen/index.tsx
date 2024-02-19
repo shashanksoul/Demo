@@ -5,11 +5,14 @@ import {isValidEmail, isValidPassword} from '../../utils/isValid';
 import {LoginScreenProps} from './types';
 import {useTranslation} from 'react-i18next';
 import LanguagePicker from '../../components/LanguagePicker';
+import {useDispatch} from 'react-redux';
+import {AuthActions} from '../../data/redux';
 
 const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const {t} = useTranslation();
+  const dispatch = useDispatch();
 
   const isLoginEnabled = () => isValidEmail(email) && isValidPassword(password);
   return (
@@ -42,7 +45,10 @@ const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
         style={
           isLoginEnabled() ? style.button : [style.button, style.buttonDisabled]
         }
-        onPress={() => navigation.replace('Home')}>
+        onPress={() => {
+          dispatch(AuthActions.logIn());
+          //navigation.replace('Home');
+        }}>
         <Text
           style={
             isLoginEnabled()

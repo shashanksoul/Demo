@@ -1,22 +1,41 @@
 import React, {useEffect} from 'react';
 import RootNavigation from './navigation';
-import {applyMiddleware, createStore} from 'redux';
+import {applyMiddleware, combineReducers, createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {thunk} from 'redux-thunk';
-import {movieReducer} from './data/redux';
+import {authReducer, movieReducer} from './data/redux';
 import './localization';
 import {updateSavedLng} from './utils/language';
+import {PersistGate} from 'redux-persist/integration/react';
+import {persistStore, persistReducer} from 'redux-persist';
+import storage from '@react-native-async-storage/async-storage';
+
+const persistConfig = {
+  key: 'root',
+  storage: storage,
+  whitelist: ['authReducer'],
+};
+
+const rootReducer = combineReducers({
+  movieReducer,
+  authReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const middleWares = [thunk];
 
-const store = createStore(movieReducer, applyMiddleware(...middleWares));
+const store = createStore(persistedReducer, applyMiddleware(...middleWares));
+const persistor = persistStore(store);
 const App = () => {
   useEffect(() => {
     (async () => await updateSavedLng())();
   }, []);
   return (
     <Provider store={store}>
-      <RootNavigation />
+      <PersistGate loading={null} persistor={persistor}>
+        <RootNavigation />
+      </PersistGate>
     </Provider>
   );
 };

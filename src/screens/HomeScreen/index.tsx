@@ -4,18 +4,17 @@ import MovieItem from '../../components/MovieItem';
 import style from './styles';
 import {useDispatch, useSelector} from 'react-redux';
 import {MovieThunks} from '../../data/redux';
-import {AppState} from '../../data/redux/types';
 import ProgressBar from '../../components/ProgressBar';
 
 const HomeScreen: React.FC = () => {
   const [page, setPage] = React.useState(1);
   const {isLoading, movies, error, currentPage, totalPages} = useSelector(
-    (state: AppState) => ({
-      isLoading: state.isLoading,
-      movies: state.movies,
-      error: state.error,
-      currentPage: state.currentMoviePage,
-      totalPages: state.totalPages,
+    (state: any) => ({
+      isLoading: state.movieReducer.isLoading,
+      movies: state.movieReducer.movies,
+      error: state.movieReducer.error,
+      currentPage: state.movieReducer.currentMoviePage,
+      totalPages: state.movieReducer.totalPages,
     }),
   );
   const dispatch: any = useDispatch();
