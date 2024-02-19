@@ -1,3 +1,4 @@
+
 # Getting Started
 Demo App showcasing redux, redux-thunk, react-navigation, localization, pagination,unit testing using jest & react native testing library.
 To run this app create .key.js file at root of folder and paste **TheMovieDB** api auth token.
@@ -42,7 +43,7 @@ yarn ios
 
 ### ScreenShots
 <img height="800" width="400" src = "https://github.com/shashanksoul/Demo/assets/46104967/b4d15255-5b07-4274-b505-cba190e58b7b" />
-<img  height="800" width="400"  src = "https://github.com/shashanksoul/Demo/assets/46104967/34d0a764-e7ef-4e20-9da5-dbf301ab9926" />
+<img  height="800" width="400"  src = "https://github.com/shashanksoul/Demo/assets/46104967/acba605d-2ee8-484a-9232-f858bdc52ca4" />
 
 
 ### Unit Test Coverage
