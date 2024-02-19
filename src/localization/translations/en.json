@@ -5,6 +5,8 @@
         "login":"Login"
     },
     "home":{
-        "progress-message": "Loading more movies..."
+        "progress-message": "Loading more movies...",
+         "title": "Popular Movies",
+        "logout":"Logout"
     }
 }
