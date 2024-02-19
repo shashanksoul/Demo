@@ -1,4 +1,4 @@
-import {MovieActionTypes} from '.';
+import {AuthActionTypes, MovieActionTypes} from '.';
 import {Movie} from '../api/types';
 
 const popularMoviesRequest = (page = 1) => {
@@ -25,10 +25,25 @@ const popularMovieFailure = (error: string) => {
   };
 };
 
+const logIn = () => {
+  return {
+    type: AuthActionTypes.LOG_IN,
+  };
+};
+const logOut = () => {
+  return {
+    type: AuthActionTypes.LOG_OUT,
+  };
+};
+
 const MovieActions = {
   popularMoviesRequest,
   popularMovieSuccess,
   popularMovieFailure,
 };
 
-export default MovieActions;
+const AuthActions = {
+  logIn,
+  logOut,
+};
+export {AuthActions, MovieActions};

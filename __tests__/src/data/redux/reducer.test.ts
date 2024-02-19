@@ -1,10 +1,19 @@
-import {MovieActions, movieReducer} from '../../../../src/data/redux';
-import {AppState} from '../../../../src/data/redux/types';
+import {
+  AuthActions,
+  MovieActions,
+  authReducer,
+  movieReducer,
+} from '../../../../src/data/redux';
+import {AppState, AuthState} from '../../../../src/data/redux/types';
 
 const initialState: AppState = {
   movies: [],
   error: undefined,
   isLoading: false,
+};
+
+const initialAuthState: AuthState = {
+  isLoggedIn: false,
 };
 
 describe('movie reducer', () => {
@@ -39,5 +48,23 @@ describe('movie reducer', () => {
   it('invalid action type', () => {
     const newState = movieReducer(undefined, '');
     expect(newState).toEqual(initialState);
+  });
+});
+
+describe('auth reducer', () => {
+  it('login action', () => {
+    const newState = authReducer(initialAuthState, AuthActions.logIn());
+
+    expect(newState.isLoggedIn).toEqual(true);
+  });
+
+  it('log out action', () => {
+    const newState = authReducer(initialAuthState, AuthActions.logOut());
+    expect(newState.isLoggedIn).toEqual(false);
+  });
+
+  it('invalid action type', () => {
+    const newState = authReducer(undefined, '');
+    expect(newState).toEqual(initialAuthState);
   });
 });

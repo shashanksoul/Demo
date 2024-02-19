@@ -1,4 +1,9 @@
-import {MovieActionTypes, initialState} from '.';
+import {
+  AuthActionTypes,
+  MovieActionTypes,
+  initialAuthState,
+  initialState,
+} from '.';
 import {AppState} from './types';
 
 const movieReducer = (
@@ -31,4 +36,21 @@ const movieReducer = (
   }
 };
 
-export default movieReducer;
+const authReducer = (state = initialAuthState, action: any) => {
+  switch (action.type) {
+    case AuthActionTypes.LOG_IN:
+      return {
+        ...state,
+        isLoggedIn: true,
+      };
+    case AuthActionTypes.LOG_OUT:
+      return {
+        ...state,
+        isLoggedIn: false,
+      };
+    default:
+      return state;
+  }
+};
+
+export {movieReducer, authReducer};
